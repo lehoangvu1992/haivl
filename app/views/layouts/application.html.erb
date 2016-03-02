@@ -27,6 +27,11 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
+        <%if notice%>
+          <div class="alert alert-success" role="alert"><%= notice %></div>
+        <%end%>
+        <p class="alert"><%= alert %></p>
+
         <%= yield %>
       </div>
     </div>
