@@ -1,0 +1,25 @@
+<div class="article-content">
+  <%= @article.content %>
+</div>
+
+<div class="article-info">
+  <%= link_to 'Edit', edit_article_path(@article)%>
+</div>
+   
+<% if user_signed_in? %>    
+<div class="comment-form">
+  <%= form_for [@article, @comment] do |f|%>
+    <%=f.text_area :content%>
+    <%=f.submit 'luu'%>
+  <%end%>
+</div>
+<div class="comments">
+  
+</div>
+<%end%>
+<% @comments.each do |comment|%>
+   <div>
+     <%= comment.content %>
+   </div>
+<% end %>
+
