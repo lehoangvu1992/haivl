@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
   	end
   end
 
-def edit
+  def edit
     @article = Article.find(params[:id])
   end
 
@@ -36,13 +36,12 @@ def edit
     @article = Article.find(params[:id])
     @comment = Comment.new
     @comments = @article.comments
-
   end
+
   def delete
     @article = Article.find(params[:id])
     @article.destroy
     redirect_to root_path
-
   end
 
   def destroy

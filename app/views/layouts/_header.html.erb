@@ -14,8 +14,9 @@
         <ul class="nav navbar-nav navbar-right">
           <%if user_signed_in?%>
             <li><%= link_to current_user.email, edit_user_registration_path%></li>
-            <li><%=link_to 'Đăng Xuất', destroy_user_session_path, method: :delete %></li>
+            <li><%=link_to 'Quản lý bài viết', my_articles_path%></li>
             <li><%=link_to 'Đăng Bài', new_article_path%></li>
+            <li><%=link_to 'Đăng Xuất', destroy_user_session_path, method: :delete %></li>
           <%else%>
             <li><%=link_to 'Đăng Ký', new_user_registration_path%></li>
             <li><%=link_to 'Đăng Nhập', new_user_session_path%></li>

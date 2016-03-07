@@ -2,24 +2,28 @@
   <%= @article.content %>
 </div>
 
-<div class="article-info">
-  <%= link_to 'Edit', edit_article_path(@article)%>
-</div>
-   
-<% if user_signed_in? %>    
+<%if current_user == @article.user%>
+	<div class="article-info">
+	  <%= link_to 'Edit', edit_article_path(@article)%>
+	</div>
+<%end%>
+
 <div class="comment-form">
   <%= form_for [@article, @comment] do |f|%>
     <%=f.text_area :content%>
-    <%=f.submit 'luu'%>
+    <%=f.submit 'Lưu'%>
   <%end%>
 </div>
+
 <div class="comments">
-  
+	<% @comments.each do |comment|%>
+	   <div>
+	     <%= comment.content %>
+	   </div>
+	<% end %>
 </div>
-<%end%>
-<% @comments.each do |comment|%>
-   <div>
-     <%= comment.content %>
-   </div>
-<% end %>
+
+
+     
+
 

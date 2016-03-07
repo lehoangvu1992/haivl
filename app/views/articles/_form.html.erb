@@ -6,24 +6,28 @@
     <% end %>
     <%= f.label :title %>
   </div>
+
   <div>
     <%= f.text_field :title %>
   </div>
 
   <div>
-      <% if @article.errors[:content].length > 0 %>
+    <% if @article.errors[:content].length > 0 %>
       <p><%= @article.errors[:content][0] %></p>
     <% end %>
     <%= f.label :content  %>
   </div>
+
   <div>
     <%= f.text_area :content, size: "60x12" %>
-   <div>
-   </div>
-   <% if @article.new_record? %>
-     <%= f.submit "create" %>
-   <%else%>
-     <%= f.submit "update" %>
-   <%end%>
-    
-  <% end %>
+  </div>
+
+  <div>
+    <% if @article.new_record? %>
+      <%= f.submit "create" %>
+    <% else %>
+      <%= f.submit "update" %>
+    <%end%>
+  </div>
+      
+<% end %>
