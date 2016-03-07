@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+ before_action :check_user_signed_in, except: [:show]
 
   def new
   	@article = Article.new
