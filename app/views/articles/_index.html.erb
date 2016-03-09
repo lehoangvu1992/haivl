@@ -6,6 +6,10 @@
     <%= article.content %>
   </div>
 
+   <div>
+   <%= image_tag article.image.url(:thumb)%>
+   </div>
+
   <div>
     <%= link_to 'Chi tiết', article_path(article)%>
     <% if user_signed_in? %>
