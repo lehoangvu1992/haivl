@@ -13,6 +13,7 @@ module Haivl
     I18n::Backend::Simple.send(:include, I18n::Backend::Fallbacks)
     I18n.fallbacks.map(vi: :en)
     config.i18n.fallbacks = [:en]
+    I18n.enforce_available_locales = false
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

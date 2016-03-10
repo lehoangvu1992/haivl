@@ -1,14 +1,33 @@
+<div class="article-title">
+<%= @article.title%>
+</div>
+
+<%= image_tag @article.image.url(:large) %>
+
 <div class="article-content">
   <%= @article.content %>
 </div>
 
-<%= image_tag @article.image.url(:large) %>
+
 
 <%if current_user == @article.user%>
 	<div class="article-info">
 	  <%= link_to 'Edit', edit_article_path(@article)%>
 	</div>
 <%end%>
+
+<div class="vote">
+	<p>
+	<div class="btn-group" role="group" aria-label="...">
+  	<%= link_to article_votes_path(@article, vote: {value: 1}), class:"btn btn-danger btn-lg", method: :post do %>
+		  <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span><%= @article.like_count %>
+ 	<% end %>
+		<button type="button" class="btn btn-default btn-lg">
+  <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>1
+	</button>
+</div>
+	
+	</p>
 
 <div class="comment-form">
   <%= form_for [@article, @comment] do |f|%>
@@ -27,6 +46,9 @@
       Bởi <%= comment.user.email %>, cách đây <%= time_ago_in_words(comment.created_at)%>
     </div>
 	<% end %>
+
+
+</div>
 </div>
 
 

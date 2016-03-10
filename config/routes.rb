@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   root 'homes#latest'
   resources :articles do
     resources :comments, only:[:create]
+    resources :votes
   end
   resources :my_articles, only: [:index]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
