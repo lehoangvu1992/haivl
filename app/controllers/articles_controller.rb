@@ -6,7 +6,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-  	@article = Article.new(params.require(:article).permit(:title, :content))
+  	@article = Article.new(params.require(:article).permit(:title, :content, :image))
     @article.user = current_user
   	if @article.save
   		redirect_to root_path

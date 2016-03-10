@@ -18,10 +18,14 @@
 </div>
 
 <div class="comments">
+<p>Có <%= @comments.count %> bình luận:</p>
 	<% @comments.each do |comment|%>
-	   <div>
+	  <div>
 	     <%= comment.content %>
-	   </div>
+	  </div>
+	  <div class="comment-info">
+      Bởi <%= comment.user.email %>, cách đây <%= time_ago_in_words(comment.created_at)%>
+    </div>
 	<% end %>
 </div>
 

@@ -4,9 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     
+
     <title>Haivl</title>
-    <!-- Latest compiled and minified CSS -->
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
     <!-- Optional theme -->
@@ -15,27 +19,41 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
   </head>
 
   <body>
 
-    <%= render 'layouts/header' %>
+
+    <%= render 'layouts/header' %><br/><br/><br/><br/>
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-      <div class="container">
-        <%if notice%>
-          <div class="alert alert-success" role="alert"><%= notice %></div>
-        <%end%>
-        <p class="alert"><%= alert %></p>
+    <div class="container">
+      <div class="row">
 
-        <%= yield %>
-      </div>
-    </div>
+        <div class="col-sm-8 blog-main">
+          
+            <div class="container">
+              <div>
+              <p class="notice"><%= notice %></p>
+              <p class="alert"><%= alert %></p>
+              </div>
+              <%= yield %>
+            </div>
+         
+        </div>
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          <div class="sidebar-module sidebar-module-inset">
+            <h4>Bài viết hay nhất</h4>
+          </div>
 
+          <div class="sidebar-module">
+            <h4>Video hay nhất</h4>
+          </div>
+        </div><!-- /.blog-sidebar -->
+
+      </div><!-- /.row -->
+
+    </div><!-- /.container -->
     <%= render 'layouts/footer' %>
 
     <!-- Bootstrap core JavaScript

@@ -3,12 +3,12 @@
   <h2><%= article.title %></h2>
    
   <div>
+   <%= image_tag article.image.url(:thumb)%>
+  </div>
+  
+  <div>
     <%= article.content %>
   </div>
-
-   <div>
-   <%= image_tag article.image.url(:thumb)%>
-   </div>
 
   <div>
     <%= link_to 'Chi tiết', article_path(article)%>
@@ -16,7 +16,7 @@
       <% if current_user == article.user %>
         <div class="article-info">
           <%= link_to 'Edit', edit_article_path(article)%>
-          <%= link_to 'delete', article_path(article), method: 'delete', data: {confirm: 'Bạn muốn xóa?'} %>
+          <%= link_to 'delete', article_path(article), method: 'delete', data: {confirm: 'Bạn có muốn xoá bài này không?'} %>
         </div> 
       <%end%> 
     <%end%>
